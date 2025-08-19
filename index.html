@@ -470,7 +470,144 @@
     </div>
   </div>
 </section>
+<section class="py-16 px-4 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-3 gap-12 items-center">
+        <!-- Modified 2x3 Image Grid -->
+        <div class="grid grid-cols-6 grid-rows-3 gap-4 col-span-2 h-[600px]">
+            <!-- Images with hover and click effects -->
+            <div class="col-span-2 row-span-2 group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/1.webp', 'Professional cleaning service')">
+                <img src="./assests/gallery/1.webp" 
+                     alt="Professional cleaning service" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+            
+            <div class="col-span-4 row-span-1 group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/2.webp', 'Equipment maintenance')">
+                <img src="./assests/gallery/2.webp" 
+                     alt="Equipment maintenance" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+            
+            <div class="col-span-2 row-span-1 group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/3.webp', 'Safety equipment')">
+                <img src="./assests/gallery/3.webp" 
+                     alt="Safety equipment" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+            
+            <div class="col-span-2 row-span-2 h-[400px] group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/6.webp', 'Technical work')">
+                <img src="./assests/gallery/6.webp" 
+                     alt="Technical work" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+            
+            <div class="col-span-2 row-span-2 group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/5.webp', 'Home renovation')">
+                <img src="./assests/gallery/5.webp" 
+                     alt="Home renovation" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+            
+            <div class="col-span-2 row-span-2 group relative overflow-hidden cursor-pointer" onclick="openModal('./assests/gallery/4.webp', 'Professional maintenance')">
+                <img src="./assests/gallery/4.webp" 
+                     alt="Professional maintenance" 
+                     class="w-full h-full object-cover rounded-lg shadow-lg transition-all duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg"></div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="space-y-6">
+            <div>
+                <p class="text-blue-600 font-medium mb-2">Projects & Gallery</p>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Our Featured Work Gallery
+                </h2>
+                <p class="text-gray-500 italic">A visual journey through our professional home services</p>
+            </div>
+            
+            <p class="text-gray-600 leading-relaxed">
+                Our comprehensive home services portfolio showcases the breadth of our expertise. From routine maintenance to complex renovations, each project reflects our commitment to quality and attention to detail.
+            </p>
+            
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p class="text-gray-700">Over 500 successful home service projects completed</p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p class="text-gray-700">Certified professionals in all home service categories</p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p class="text-gray-700">Before-and-after documentation for every project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4">
+    <div class="relative max-w-6xl max-h-[90vh]">
+        <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300">&times;</button>
+        <img id="modalImage" class="max-w-full max-h-[80vh] object-contain" src="" alt="">
+        <p id="modalCaption" class="text-white text-center mt-2 text-lg"></p>
+    </div>
+</div>
+
+<script>
+    function openModal(src, alt) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const caption = document.getElementById('modalCaption');
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalImg.src = src;
+        caption.textContent = alt;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside the image
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+<style>
+    .group:hover img {
+        transform: scale(1.1);
+    }
+    #imageModal {
+        transition: opacity 0.3s ease;
+    }
+</style>
 <footer class="bg-gradient-to-r from-[#3f9bd4] via-[#2b76c0] to-[#1e54a4] text-white py-12">
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
