@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scrub and Polish Cleaning Services</title>
+  <title>Cleaning Services | Scrub and Polish</title>
   
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,10 +13,28 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
- <style>
+  
+  <style>
     body { font-family: 'Poppins', sans-serif; }
+    .dropdown:hover .dropdown-menu { display: block; }
+    
+    /* Service card hover effect */
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Banner styling */
+    .services-banner {
+      background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
   </style>
-  </head>
+</head>
 <body class="overflow-x-hidden">
 
   <!-- Header -->
@@ -25,12 +43,12 @@
       <!-- Contact Info -->
       <div class="flex flex-col md:flex-row gap-4 items-center">
         <div class="flex items-center gap-2">
-          <i class="bi bi-telephone-fill"></i>
+          <i class="bi bi-envelope-fill"></i>
           <span>info@scrubandpolishcleaning.com.au</span>
         </div>
         <div class="flex items-center gap-2">
           <i class="bi bi-geo-alt-fill"></i>
-          <span>8 Gathray Court, Roxburgh Park, 3064</span>
+          <span>8 Gathray Court, Roxburgh Park, 3064</span>
         </div>
       </div>
 
@@ -43,7 +61,7 @@
     </div>
   </header>
 
-  <!-- Navigation -->
+    <!-- Navigation -->
   <nav id="navbar" class="sticky top-0 bg-white/95 backdrop-blur border-b border-gray-200 shadow transition-all duration-300 z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
       <!-- Logo -->
@@ -55,7 +73,52 @@
       <ul id="navMenu" class="hidden md:flex gap-8 font-medium">
         <li><a href="index.html" class="hover:text-[#2a5298] transition">Home</a></li>
         <li><a href="about.html" class="hover:text-[#2a5298] transition">About Us</a></li>
-        <li><a href="service.html" class="hover:text-[#2a5298] transition">Services</a></li>
+         <li class="relative dropdown">
+                    <a href="service.html" class="hover:text-[#2a5298] transition flex items-center">
+                        Services
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu absolute hidden top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-50 ">
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                <i class="bi bi-buildings text-blue-900"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Commercial Cleaning</p>
+                                <p class="text-xs text-gray-500">For offices & business spaces</p>
+                            </div>
+                        </a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                <i class="bi bi-briefcase text-blue-900"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Office Cleaning</p>
+                                <p class="text-xs text-gray-500">Professional workspace cleaning</p>
+                            </div>
+                        </a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                <i class="bi bi-building text-blue-900"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Building Cleaning</p>
+                                <p class="text-xs text-gray-500">Complete building maintenance</p>
+                            </div>
+                        </a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                <i class="bi bi-house text-blue-900"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Residential Cleaning</p>
+                                <p class="text-xs text-gray-500">Homes & apartments</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
         <li><a href="blog.html" class="hover:text-[#2a5298] transition">Blogs</a></li>
         <li><a href="contact.html" class="hover:text-[#2a5298] transition">Contact</a></li>
       </ul>
@@ -75,48 +138,159 @@
       <a href="#" class="bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white px-5 py-2 rounded-full text-center">Get a Quote</a>
     </div>
   </nav>
-  
-<footer class="bg-gradient-to-r from-[#3f9bd4] via-[#2b76c0] to-[#1e54a4] text-white py-12">
+
+  <!-- Banner Section -->
+  <section class="services-banner py-20 flex items-center">
+    <div class="max-w-7xl mx-auto px-4 text-center text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Cleaning Services</h1>
+      <p class="text-xl max-w-3xl mx-auto">Professional Cleaning solutions tailored to keep your workspace pristine and productive</p>
+    </div>
+  </section>
+
+  <!-- Services Grid Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Cleaning Services</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">We offer comprehensive Cleaning solutions designed to maintain a clean, healthy, and productive work environment for your team.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Regular Cleaning" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Regular Cleaning</h3>
+            <p class="text-gray-600">Our expert team provides customizable Cleaning, including dusting, vacuuming, and sanitizing high-touch areas like restrooms and kitchens.</p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Daily, weekly, or monthly plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Thorough dusting and vacuuming</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Restroom and kitchen sanitization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+ <!-- Service 1 -->
+        <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Regular Cleaning" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Regular Cleaning</h3>
+            <p class="text-gray-600">Our expert team provides customizable Cleaning, including dusting, vacuuming, and sanitizing high-touch areas like restrooms and kitchens.</p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Daily, weekly, or monthly plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Thorough dusting and vacuuming</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Restroom and kitchen sanitization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+         <!-- Service 1 -->
+        <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Regular Cleaning" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Regular Cleaning</h3>
+            <p class="text-gray-600">Our expert team provides customizable Cleaning, including dusting, vacuuming, and sanitizing high-touch areas like restrooms and kitchens.</p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Daily, weekly, or monthly plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Thorough dusting and vacuuming</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Restroom and kitchen sanitization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+         <!-- Service 1 -->
+        <div class="service-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 alt="Regular Cleaning" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Regular Cleaning</h3>
+            <p class="text-gray-600">Our expert team provides customizable Cleaning, including dusting, vacuuming, and sanitizing high-touch areas like restrooms and kitchens.</p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Daily, weekly, or monthly plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Thorough dusting and vacuuming</span>
+              </li>
+              <li class="flex items-start">
+                <i class="bi bi-check-circle-fill text-blue-600 mt-1 mr-2"></i>
+                <span class="text-gray-700">Restroom and kitchen sanitization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-[#3f9bd4] via-[#2b76c0] to-[#1e54a4] text-white py-12">
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <!-- Brand Column -->
             <div class="lg:col-span-1">
-                <img src="./assests/Logo-White.png" alt="logo" class="h-16 mb-4">
+                <div class="h-16 w-48 bg-white/10 rounded-lg flex items-center justify-center mb-4">
+                  <span class="text-white font-bold text-xl">SCRUB & POLISH</span>
+                </div>
                 <p class="text-blue-100 text-sm mb-6 leading-relaxed">
                     Transforming Spaces with Precision and Care - Your Trusted Cleaning Partner
                 </p>
                 
                 <!-- Social Icons -->
                 <div class="flex space-x-3">
-                                    <!-- X / Twitter -->
                   <a href="#" class="w-8 h-8 bg-[#1e54a4] rounded-full flex items-center justify-center hover:bg-[#3f9bd4] transition-colors">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
+                    <i class="bi bi-facebook"></i>
                   </a>
-
-                  <!-- Facebook -->
                   <a href="#" class="w-8 h-8 bg-[#1e54a4] rounded-full flex items-center justify-center hover:bg-[#3f9bd4] transition-colors">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24H12v-9.333H9.333v-3.667H12V8.333c0-2.667 1.633-4.133 4.013-4.133 1.158 0 2.41.208 2.41.208v2.65h-1.357c-1.338 0-1.75.827-1.75 1.675v2.017h3.017l-.483 3.667h-2.534V24h4.967c.728 0 1.325-.597 1.325-1.333V1.333C24 .598 23.403 0 22.675 0z"/>
-                    </svg>
+                    <i class="bi bi-twitter-x"></i>
                   </a>
-
-                  <!-- Instagram -->
                   <a href="#" class="w-8 h-8 bg-[#1e54a4] rounded-full flex items-center justify-center hover:bg-[#3f9bd4] transition-colors">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.346 3.608 1.321.975.975 1.259 2.242 1.321 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.346 2.633-1.321 3.608-.975.975-2.242 1.259-3.608 1.321-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.346-3.608-1.321-.975-.975-1.259-2.242-1.321-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.849c.062-1.366.346-2.633 1.321-3.608.975-.975 2.242-1.259 3.608-1.321C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.012 7.052.07 5.77.127 4.642.393 3.68 1.355c-.963.963-1.229 2.091-1.286 3.373C2.012 5.668 2 6.077 2 9.337v5.326c0 3.26.012 3.669.07 4.949.057 1.282.323 2.41 1.286 3.373.963.963 2.091 1.229 3.373 1.286 1.28.058 1.689.07 4.949.07s3.669-.012 4.949-.07c1.282-.057 2.41-.323 3.373-1.286.963-.963 1.229-2.091 1.286-3.373.058-1.28.07-1.689.07-4.949V9.337c0-3.26-.012-3.669-.07-4.949-.057-1.282-.323-2.41-1.286-3.373C19.41.393 18.282.127 17 .07 15.719.012 15.31 0 12 0z"/>
-                      <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
-                      <circle cx="18.406" cy="5.594" r="1.44"/>
-                    </svg>
+                    <i class="bi bi-instagram"></i>
                   </a>
-
-                  <!-- YouTube -->
                   <a href="#" class="w-8 h-8 bg-[#1e54a4] rounded-full flex items-center justify-center hover:bg-[#3f9bd4] transition-colors">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.498 6.186a2.996 2.996 0 0 0-2.115-2.118C19.399 3.667 12 3.667 12 3.667s-7.399 0-9.383.401A2.996 2.996 0 0 0 .502 6.186C0 8.168 0 12 0 12s0 3.832.502 5.814a2.996 2.996 0 0 0 2.115 2.118c1.984.401 9.383.401 9.383.401s7.399 0 9.383-.401a2.996 2.996 0 0 0 2.115-2.118C24 15.832 24 12 24 12s0-3.832-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
+                    <i class="bi bi-youtube"></i>
                   </a>
                 </div>
             </div>
@@ -138,23 +312,15 @@
                 <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
                 <div class="space-y-3">
                     <div class="flex items-start space-x-2">
-                        <svg class="w-4 h-4 mt-1 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                        </svg>
+                        <i class="bi bi-geo-alt mt-1 text-blue-200"></i>
                         <span class="text-blue-100 text-sm">8 Gathray Court, Roxburgh Park, 3064</span>
                     </div>
                     <div class="flex items-start space-x-2">
-                        <svg class="w-4 h-4 mt-1 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                        </svg>
-                        <span class="text-blue-100 text-sm">+977-9841234560, 01-5454545</span>
+                        <i class="bi bi-telephone mt-1 text-blue-200"></i>
+                        <span class="text-blue-100 text-sm">+61 412 345 678</span>
                     </div>
                     <div class="flex items-start space-x-2">
-                        <svg class="w-4 h-4 mt-1 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                        </svg>
+                        <i class="bi bi-envelope mt-1 text-blue-200"></i>
                         <span class="text-blue-100 text-sm">info@scrubandpolishcleaning.com.au</span>
                     </div>
                 </div>
@@ -180,7 +346,7 @@
         <!-- Bottom Section -->
         <div class="mt-8 pt-6 border-t border-blue-400/30">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p class="text-blue-100 text-xs">© 2025 Your cleaning services. All rights reserved.</p>
+                <p class="text-blue-100 text-xs">© 2023 Scrub and Polish Cleaning Services. All rights reserved.</p>
                 <div class="flex space-x-4 text-xs">
                     <a href="#" class="text-blue-100 hover:text-white transition-colors">Privacy Policy</a>
                     <span class="text-blue-300">|</span>
@@ -189,8 +355,9 @@
             </div>
         </div>
     </div>
-</footer>
- <!-- Scripts -->
+  </footer>
+
+  <!-- Scripts -->
   <script>
     // Sticky navbar effect
     window.addEventListener("scroll", function () {

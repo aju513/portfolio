@@ -21,7 +21,7 @@
             theme: {
                 extend: {
                     colors: {
-                        cleanblue: '#3B82F6',
+                        cleanblue: '#1e3c72',
                         cleanteal: '#0F766E',
                         cleanlight: '#F0F9FF',
                     }
@@ -29,6 +29,31 @@
             }
         }
     </script>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            color: #4b5563;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .pagination a:hover, .pagination a.active {
+            background-color: #1e54a4;
+            color: white;
+            border-color: #1e54a4;
+        }
+    </style>
   </head>
 <body class="overflow-x-hidden">
 
@@ -88,186 +113,209 @@
       <a href="#" class="bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white px-5 py-2 rounded-full text-center">Get a Quote</a>
     </div>
   </nav>
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Main Blog Content (70% width) -->
-            <div class="lg:w-[70%] bg-white rounded-xl shadow-lg overflow-hidden">
-                <!-- Blog Title -->
-                <h1 class="text-4xl font-bold text-gray-800 px-8 pt-8 pb-4">10 Professional Cleaning Secrets You Need to Know</h1>
-                
-                <!-- Date and Reading Time -->
-                <div class="flex items-center px-8 pb-6 text-gray-500">
-                    <span class="mr-4"><i class="far fa-calendar mr-2"></i>August 20, 2023</span>
-                    <span><i class="far fa-clock mr-2"></i>8 min read</span>
+  <main>
+        <!-- Header Section -->
+        <header class=" text-cleanblue py-16">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h1 class="text-xl md:text-5xl font-bold mb-6">Scrub and Polish Cleaning Services Blog</h1>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Expert advice, industry trends, and practical solutions for keeping your home sparkling clean and well-maintained.
+                </p>
+            </div>
+        </header>
+
+        <!-- Blog Listing Section -->
+        <section class="py-16 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <!-- Blog grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Deep cleaning kitchen appliances" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>May 15, 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">The Ultimate Guide to Deep Cleaning Your Kitchen Appliances</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Learn professional techniques to clean your oven, refrigerator, and dishwasher for better performance and longevity...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Eco-friendly cleaning products" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>April 28, 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">5 Eco-Friendly Cleaning Solutions That Actually Work</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Discover how to make your cleaning routine more sustainable with these effective natural alternatives to chemical cleaners...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Seasonal home maintenance checklist" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>March 10, 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>7 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">Your Complete Seasonal Home Maintenance Checklist</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Stay on top of home care throughout the year with this comprehensive seasonal maintenance guide from the professionals...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bathroom cleaning tips" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>February 22, 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">How to Eliminate Soap Scum and Hard Water Stains</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Battle bathroom buildup with these professional techniques for removing stubborn soap scum and hard water stains...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Carpet cleaning techniques" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>January 15, 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">Professional Carpet Cleaning Techniques You Can Do Yourself</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Extend the life of your carpets and remove deep-down dirt with these professional carpet cleaning methods...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 6 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <a href="blog-single.html">
+                            <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Green cleaning products" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>December 5, 2022</span>
+                                <span class="mx-2">•</span>
+                                <span>8 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                <a href="blog-single.html" class="hover:text-cleanblue transition-colors">The Complete Guide to Green Cleaning for Allergy Sufferers</a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Reduce allergens in your home with these natural cleaning methods that are safe for everyone in the family...
+                            </p>
+                            <a href="blog-single.html" class="inline-flex items-center text-cleanblue font-medium hover:underline">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
                 </div>
-                
-                <!-- Featured Image -->
-                <div class="w-full h-80 bg-cleanteal mb-6 flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cleaning Tips" class="w-full h-full object-cover">
-                </div>
-                
-                <!-- Blog Content (Scrollable) -->
-                <div class="px-8 pb-8 overflow-y-auto">
-                    <p class="text-lg text-gray-700 mb-4">
-                        After years in the cleaning industry, we've learned that there's more to a spotless home than just hard work. 
-                        The real secret is working smarter, not harder. Here are 10 professional cleaning secrets that will transform your approach to cleaning.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">1. The Power of Microfiber</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Professional cleaners swear by microfiber cloths for a reason. These ultra-fine fibers are 100 times finer than a human hair and can hold up to 7 times their weight in water. 
-                        They attract and trap dust, dirt, and bacteria without the need for chemical cleaners in many cases.
-                    </p>
-                    
-                    <div class="bg-cleanlight p-6 rounded-lg my-6 border-l-4 border-cleanblue">
-                        <p class="text-cleanteal font-semibold">
-                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                            Pro Tip: Use different colored microfiber cloths for different areas to avoid cross-contamination.
-                        </p>
-                    </div>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">2. The Correct Order of Cleaning</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Always clean from top to bottom and from dry to wet. Start with dusting ceiling corners, light fixtures, and shelves, then work your way down to furniture and finally floors. 
-                        This way, any dust that falls will be captured in later cleaning steps.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">3. DIY All-Purpose Cleaner</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Why spend money on expensive cleaners when you can make your own? Mix equal parts white vinegar and water in a spray bottle, add a few drops of essential oil for fragrance (tea tree or lemon work great), and you have an effective, non-toxic cleaner for most surfaces.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">4. The Magic of Steam Cleaning</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Steam cleaners are the secret weapon of professional cleaners. The high-temperature steam (above 212°F) sanitizes surfaces without chemicals, dissolves grime, and reaches into pores and cracks that traditional cleaning can't touch. 
-                        Perfect for bathrooms, kitchens, and even upholstery.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">5. Grout Restoration Technique</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Discolored grout can make even clean tiles look dirty. Create a paste of baking soda and hydrogen peroxide, apply to grout lines, let sit for 30 minutes, then scrub with a stiff brush. 
-                        For tough stains, use a toothbrush with a mixture of oxygen bleach and water.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">6. Speed Cleaning Strategies</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Professionals work efficiently by cleaning in sections. Divide each room into quadrants and complete one section before moving to the next. 
-                        This prevents missing spots and makes the process more manageable.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">7. The Right Tools for the Job</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Invest in quality tools that make cleaning easier: extension poles for high areas, a good vacuum with HEPA filtration, a squeegee for shower doors, and a caddy to keep all supplies organized and portable.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">8. Odor Elimination Science</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        To eliminate odors rather than just covering them up, use baking soda or activated charcoal. These natural substances absorb odor molecules from the air. 
-                        For stubborn smells, an ozone generator can break down odor molecules at the chemical level.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">9. Preventative Maintenance</h2>
-                    
-                    <p class="text-gray-700 mb-4">
-                        The best cleaning is the kind you don't have to do. Use doormats at all entrances, implement a no-shoes policy, and address spills immediately. 
-                        Regular light cleaning is easier than occasional deep cleaning.
-                    </p>
-                    
-                    <h2 class="text-2xl font-semibold mt-8 mb-4 text-cleanteal">10. Eco-Friendly Focus</h2>
-                    
-                    <p class="text-gray-700 mb-8">
-                        Many professional cleaning companies are moving toward green cleaning practices. Not only are they better for the environment, but they're also safer for your family and pets. 
-                        Look for products with the EPA's Safer Choice label or make your own natural cleaners.
-                    </p>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg my-6 border-l-4 border-blue-500">
-                        <p class="text-blue-800">
-                            "Implementing even a few of these professional techniques can cut your cleaning time in half while achieving better results. Start with one or two and gradually incorporate more into your routine."
-                        </p>
-                    </div>
+
+                <!-- Pagination -->
+                <div class="pagination mt-12">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            
-                <!-- Suggestion Feed (30% width) -->
-            <div class="lg:w-[30%]">
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-6 sticky top-6">
-                    <h2 class="text-xl font-bold mb-4 pb-2 border-b border-gray-200 text-cleanteal">Related Articles</h2>
-                    
-                    <!-- Blog Suggestion 1 -->
-                    <div class="mb-5 pb-5 border-b border-gray-100">
-                        <div class="h-32 rounded-lg mb-3 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" 
-                                 alt="Eco-friendly cleaning products" class="suggestion-img">
-                        </div>
-                        <h3 class="font-semibold mb-1 text-gray-800">Eco-Friendly Cleaning Products</h3>
-                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar mr-1"></i>August 15, 2023</p>
-                        <p class="text-sm text-gray-700">Discover the best natural alternatives to chemical cleaners that are safe for your family and the environment.</p>
-                    </div>
-                    
-                    <!-- Blog Suggestion 2 -->
-                    <div class="mb-5 pb-5 border-b border-gray-100">
-                        <div class="h-32 rounded-lg mb-3 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Cleaning tools" class="suggestion-img">
-                        </div>
-                        <h3 class="font-semibold mb-1 text-gray-800">Essential Cleaning Toolkit</h3>
-                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar mr-1"></i>August 10, 2023</p>
-                        <p class="text-sm text-gray-700">Build the perfect cleaning kit with these must-have tools that professionals use.</p>
-                    </div>
-                    
-                    <!-- Blog Suggestion 3 -->
-                    <div class="mb-5 pb-5 border-b border-gray-100">
-                        <div class="h-32 rounded-lg mb-3 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" 
-                                 alt="Clean bathroom" class="suggestion-img">
-                        </div>
-                        <h3 class="font-semibold mb-1 text-gray-800">Bathroom Deep Cleaning Guide</h3>
-                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar mr-1"></i>August 5, 2023</p>
-                        <p class="text-sm text-gray-700">Step-by-step instructions to eliminate soap scum, mildew, and hard water stains.</p>
-                    </div>
-                    
-                    <!-- Blog Suggestion 4 -->
-                    <div class="mb-5 pb-5 border-b border-gray-100">
-                        <div class="h-32 rounded-lg mb-3 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Upholstery cleaning" class="suggestion-img">
-                        </div>
-                        <h3 class="font-semibold mb-1 text-gray-800">Upholstery Cleaning Methods</h3>
-                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar mr-1"></i>July 28, 2023</p>
-                        <p class="text-sm text-gray-700">How to safely clean different types of furniture fabrics and remove stubborn stains.</p>
-                    </div>
-                    
-                    <!-- Blog Suggestion 5 -->
-                    <div class="mb-5">
-                        <div class="h-32 rounded-lg mb-3 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Steam cleaning" class="suggestion-img">
-                        </div>
-                        <h3 class="font-semibold mb-1 text-gray-800">Steam Cleaning Mastery</h3>
-                        <p class="text-sm text-gray-500 mb-2"><i class="far fa-calendar mr-1"></i>July 20, 2023</p>
-                        <p class="text-sm text-gray-700">Learn how to use steam cleaners effectively for sanitizing without chemicals.</p>
-                    </div>
-                </div>
-                
-                
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="py-16 bg-cleanlight">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Updated with Cleaning Tips</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Get the latest cleaning advice, exclusive tips, and special offers delivered to your inbox.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cleanblue focus:border-transparent">
+                    <button type="submit" class="bg-cleanblue hover:bg-blue-800 text-white px-6 py-3 rounded-lg transition duration-200 font-medium">Subscribe</button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
             </div>
-        </div>
+        </section>
     </main>
-    
-    <script>
-        // Simple scroll effect for the content area
-        const contentArea = document.querySelector('.overflow-y-auto');
-        contentArea.scrollTop = 0;
-    </script>
-  
 <footer class="bg-gradient-to-r from-[#3f9bd4] via-[#2b76c0] to-[#1e54a4] text-white py-12">
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
