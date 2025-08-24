@@ -1,202 +1,28 @@
-/* ========== CSS Starter Kit ==========
-   Palette:
-   --color-primary: #1e54a4
-   --color-secondary: #3f9bd4
-   --color-tertiary: #000000 (black)
-   ==================================== */
-
-/* 1) Modern Reset */
-*, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
-html:focus-within { scroll-behavior: smooth; }
-html, body { height: 100%; }
-body { line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-img, picture, video, canvas, svg { display: block; max-width: 100%; }
-input, button, textarea, select { font: inherit; }
-a { color: inherit; text-decoration: none; }
-ul[role='list'], ol[role='list'] { list-style: none; padding: 0; }
-
-/* 2) Design Tokens */
-:root {
-  /* Colors */
-  --color-primary: #1e54a4;
-  --color-secondary: #3f9bd4;
-  --color-tertiary: #000000; /* black */
-  --color-bg: #ffffff;
-  --color-text: #171717;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-navbar-text: #f8fafc; /* New navbar text color */
-
-  /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
-  --shadow-md: 0 4px 12px rgba(54, 12, 12, 0.08);
-  --radius: 14px;
-
-  /* Typography */
---font-sans: "Poppins", Arial, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-
-  --fs-300: 0.875rem;
-  --fs-400: 1rem;
-  --fs-500: 1.125rem;
-  --fs-600: 1.25rem;
-  --fs-700: 1.5rem;
-  --fs-800: 1.875rem;
-  --fs-900: 2.25rem;
-
-  /* Spacing (8px scale) */
-  --space-1: .25rem;  /* 4px */
-  --space-2: .5rem;   /* 8px */
-  --space-3: .75rem;  /* 12px */
-  --space-4: 1rem;    /* 16px */
-  --space-5: 1.5rem;  /* 24px */
-  --space-6: 2rem;    /* 32px */
-  --space-8: 3rem;    /* 48px */
-  --space-10: 4rem;   /* 64px */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
-
-/* Optional dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0b1220;
-    --color-text: #e5e7eb;
-    --color-border: #23324a;
-  }
-}
-
-/* 3) Base */
 body {
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: var(--fs-400);
+  font-family: "Poppins", sans-serif;
 }
-h1, h2, h3 {
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  font-weight: 700;
-}
-h1 { font-size: var(--fs-900); }
-h2 { font-size: var(--fs-800); }
-h3 { font-size: var(--fs-700); }
-p { margin-block: var(--space-3); color: var(--color-text); }
-small, .text-sm { font-size: var(--fs-300); color: var(--color-muted); }
-
-/* 4) Layout helpers */
-.container {
-  width: min(100% - 2rem, 1100px);
-  margin-inline: auto;
-}
-.stack > * + * { margin-top: var(--space-4); }
-.cluster {
-  display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;
-}
-.grid {
-  display: grid; gap: var(--space-4);
-}
-.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 768px) {
-  .grid--2, .grid--3 { grid-template-columns: 1fr; }
+#mobileMenu {
+  transition: all 0.3s ease-out;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
 }
 
-/* 5) Utilities */
-.mt-4 { margin-top: var(--space-4); } .mb-4 { margin-bottom: var(--space-4); }
-.mt-6 { margin-top: var(--space-6); } .mb-6 { margin-bottom: var(--space-6); }
-.p-4 { padding: var(--space-4); } .p-6 { padding: var(--space-6); }
-.text-center { text-align: center; }
-.text-muted { color: var(--color-muted); }
-.border { border: 1px solid var(--color-border); border-radius: var(--radius); }
-.shadow { box-shadow: var(--shadow-md); }
-
-/* 6) Buttons */
-.btn {
-  --btn-bg: var(--color-primary);
-  --btn-color: #fff;
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: .5rem;
-  padding: .65rem 1rem;
-  border-radius: calc(var(--radius) - 4px);
-  border: 1px solid transparent;
-  background: var(--btn-bg);
-  color: var(--btn-color);
-  font-weight: 600;
-  line-height: 1;
-  transition: transform .08s ease, filter .15s ease, background .2s ease;
-  cursor: pointer;
-}
-.btn:hover { filter: brightness(1.06); }
-.btn:active { transform: translateY(1px); }
-.btn--primary { --btn-bg: var(--color-primary); }
-.btn--secondary { --btn-bg: var(--color-secondary); }
-.btn--outline {
-  --btn-bg: transparent; --btn-color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-.btn--ghost {
-  --btn-bg: transparent; --btn-color: var(--color-text);
+#mobileMenu.menu-open {
+  max-height: 500px;
+  opacity: 1;
 }
 
-/* 7) Badges */
-.badge {
-  display: inline-block;
-  border-radius: 999px;
-  padding: .25rem .6rem;
-  font-size: var(--fs-300);
-  border: 1px solid var(--color-border);
-  background: rgba(63,155,212,.09);
-  color: var(--color-primary);
+/* Mobile submenu */
+.mobile-submenu {
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  max-height: 0;
 }
 
-/* 8) Card */
-.card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  overflow: clip;
-}
-.card__body { padding: var(--space-5); }
-.card__title { font-size: var(--fs-600); margin-bottom: var(--space-2); }
-.card__actions { margin-top: var(--space-4); }
-
-/* 9) Header/Nav */
-.header {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  color: #fff;
-}
-.navbar {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: var(--space-4) 0;
-}
-.brand { font-weight: 800; letter-spacing: .3px; }
-
-/* 10) Forms */
-.input {
-  width: 100%;
-  padding: .7rem .9rem;
-  border: 1px solid var(--color-border);
-  border-radius: calc(var(--radius) - 6px);
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.input:focus {
-  outline: 2px solid color-mix(in srgb, var(--color-secondary) 60%, transparent);
-  border-color: var(--color-secondary);
-}
-
-/* 11) Footer */
-.footer {
-  border-top: 1px solid var(--color-border);
-  padding-block: var(--space-6);
-  color: var(--color-muted);
-}
-
-/* 12) Accessibility helpers */
-.skip-link {
-  position: absolute; left: -9999px; top: auto;
-}
-.skip-link:focus {
-  left: 1rem; top: 1rem; background: #fff; color: #000;
-  padding: .5rem .75rem; border-radius: .5rem;
-  box-shadow: var(--shadow-md);
+.mobile-submenu.submenu-open {
+  max-height: 300px;
 }
