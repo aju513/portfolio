@@ -1,0 +1,13 @@
+   .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .checkmark {
+            display: none;
+        }
+        .service-card.selected .checkmark {
+            display: flex;
+        }

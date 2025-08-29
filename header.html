@@ -1,276 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vertical Mobile Menu</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Selection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
     <style>
-      /* Mobile menu animation */
-      #mobileMenu {
-        transition: all 0.3s ease-out;
-        overflow: hidden;
-        max-height: 0;
-        opacity: 0;
-      }
-
-      #mobileMenu.menu-open {
-        max-height: 500px;
-        opacity: 1;
-      }
-
-      /* Mobile submenu */
-      .mobile-submenu {
-        transition: max-height 0.3s ease-out;
-        overflow: hidden;
-        max-height: 0;
-      }
-
-      .mobile-submenu.submenu-open {
-        max-height: 300px;
-      }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .checkmark {
+            display: none;
+        }
+        .service-card.selected .checkmark {
+            display: flex;
+        }
     </style>
-  </head>
-  <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav
-      class="sticky top-0 bg-white/95 backdrop-blur border-b border-gray-200 shadow transition-all duration-300 z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto px-4 flex items-center justify-between py-3"
-      >
-        <!-- Logo -->
-        <a href="#" class="text-2xl font-bold text-[#2a5298]">
-          <div
-            class="h-12 w-40 bg-blue-100 rounded flex items-center justify-center"
-          >
-            <span class="text-blue-800 font-bold">Scrub & Polish</span>
-          </div>
-        </a>
-
-        <!-- Desktop Menu (Hidden on mobile) -->
-        <ul class="hidden md:flex gap-6 lg:gap-8 font-medium">
-          <li>
-            <a href="index.html" class="hover:text-[#2a5298] transition"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="about.html" class="hover:text-[#2a5298] transition"
-              >About Us</a
-            >
-          </li>
-          <li class="relative dropdown group">
-            <a
-              href="service.html"
-              class="hover:text-[#2a5298] transition flex items-center"
-            >
-              Services
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="blog.html" class="hover:text-[#2a5298] transition"
-              >Blogs</a
-            >
-          </li>
-          <li>
-            <a href="contact.html" class="hover:text-[#2a5298] transition"
-              >Contact</a
-            >
-          </li>
-        </ul>
-
-        <!-- Desktop CTA Button -->
-        <a
-          href="#"
-          class="bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white px-5 py-2 rounded-full hover:shadow-lg transition hidden md:block"
-        >
-          Get a Quote
-        </a>
-
-        <!-- Mobile Menu Button -->
-        <button
-          id="mobileMenuBtn"
-          class="md:hidden text-2xl p-2 rounded-md hover:bg-gray-100 transition"
-        >
-          ☰
-        </button>
-      </div>
-
-      <!-- Mobile Menu - Fixed Vertical Layout -->
-      <div
-        id="mobileMenu"
-        class="md:hidden bg-white border-t px-4 py-3 font-medium"
-      >
-        <div class="flex flex-col space-y-3">
-          <a
-            href="index.html"
-            class="py-2 px-3 hover:text-[#2a5298] hover:bg-blue-50 rounded transition"
-            >Home</a
-          >
-          <a
-            href="about.html"
-            class="py-2 px-3 hover:text-[#2a5298] hover:bg-blue-50 rounded transition"
-            >About Us</a
-          >
-
-          <!-- Services with submenu -->
-          <div class="relative">
-            <div
-              class="flex justify-between items-center py-2 px-3 hover:text-[#2a5298] hover:bg-blue-50 rounded cursor-pointer"
-              onclick="toggleSubmenu()"
-            >
-              <span>Services</span>
-              <svg
-                id="servicesArrow"
-                class="w-4 h-4 transform transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-3xl w-full bg-white rounded-2xl shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Select a Cleaning Service</h2>
+        <p class="text-gray-600 mb-6">Choose the area you'd like us to clean</p>
+        
+        <div id="serviceOptions" class="flex gap-5 mb-8 overflow-x-auto pb-2">
+            <!-- Bedroom -->
+            <div class="service-card selected bg-blue-50 rounded-xl border-2 border-blue-600 p-5 flex flex-col items-center cursor-pointer min-w-[110px]"
+                 data-service="Bedroom">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                        <i class="bi bi-house-door text-xl text-blue-600"></i>
+                    </div>
+                    <div class="checkmark absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                        <i class="bi bi-check text-white text-xs"></i>
+                    </div>
+                </div>
+                <span class="mt-3 text-sm font-medium text-gray-700">Bedroom</span>
             </div>
-            <div id="servicesSubmenu" class="mobile-submenu pl-6 mt-1">
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition"
-                >Commercial Cleaning</a
-              >
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition"
-                >Office Cleaning</a
-              >
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition"
-                >Residential Cleaning</a
-              >
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition"
-                >Window Cleaning</a
-              >
-            </div>
-          </div>
 
-          <a
-            href="blog.html"
-            class="py-2 px-3 hover:text-[#2a5298] hover:bg-blue-50 rounded transition"
-            >Blogs</a
-          >
-          <a
-            href="contact.html"
-            class="py-2 px-3 hover:text-[#2a5298] hover:bg-blue-50 rounded transition"
-            >Contact</a
-          >
-          <a
-            href="#"
-            class="bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white px-5 py-3 rounded-full text-center mt-2"
-          >
-            Get a Quote
-          </a>
+            <!-- Bathroom -->
+            <div class="service-card bg-white rounded-xl border-2 border-gray-200 p-5 flex flex-col items-center cursor-pointer min-w-[110px]"
+                 data-service="Bathroom">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                        <i class="bi bi-droplet text-xl text-blue-600"></i>
+                    </div>
+                    <div class="checkmark absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                        <i class="bi bi-check text-white text-xs"></i>
+                    </div>
+                </div>
+                <span class="mt-3 text-sm font-medium text-gray-700">Bathroom</span>
+            </div>
+
+            <!-- Kitchen -->
+            <div class="service-card bg-white rounded-xl border-2 border-gray-200 p-5 flex flex-col items-center cursor-pointer min-w-[110px]"
+                 data-service="Kitchen">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                        <i class="bi bi-cup-straw text-xl text-blue-600"></i>
+                    </div>
+                    <div class="checkmark absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                        <i class="bi bi-check text-white text-xs"></i>
+                    </div>
+                </div>
+                <span class="mt-3 text-sm font-medium text-gray-700">Kitchen</span>
+            </div>
+
+            <!-- Living Room -->
+            <div class="service-card bg-white rounded-xl border-2 border-gray-200 p-5 flex flex-col items-center cursor-pointer min-w-[110px]"
+                 data-service="Living Room">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                        <i class="bi bi-tv text-xl text-blue-600"></i>
+                    </div>
+                    <div class="checkmark absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                        <i class="bi bi-check text-white text-xs"></i>
+                    </div>
+                </div>
+                <span class="mt-3 text-sm font-medium text-gray-700">Living Room</span>
+            </div>
+
+            <!-- Office -->
+            <div class="service-card bg-white rounded-xl border-2 border-gray-200 p-5 flex flex-col items-center cursor-pointer min-w-[110px]"
+                 data-service="Office">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                        <i class="bi bi-laptop text-xl text-blue-600"></i>
+                    </div>
+                    <div class="checkmark absolute -top-1 -right-1 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                        <i class="bi bi-check text-white text-xs"></i>
+                    </div>
+                </div>
+                <span class="mt-3 text-sm font-medium text-gray-700">Office</span>
+            </div>
         </div>
-      </div>
-    </nav>
 
-    <!-- Content Section -->
-    <div class="max-w-7xl mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold mb-6">Vertical Mobile Menu</h1>
+        <!-- Selected Service Content -->
+        <div id="serviceContent" class="mb-8 transition-all duration-500">
+            <!-- Bedroom -->
+            <div class="service-content bg-blue-50 rounded-xl p-5" data-service="Bedroom">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Bedroom Cleaning</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Dusting and wiping surfaces</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Vacuuming and mopping floors</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Changing bed linens</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Organizing and decluttering</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Mirror and glass cleaning</li>
+                </ul>
+            </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 class="text-xl font-semibold mb-4">
-          Why your mobile menu was horizontal:
-        </h2>
-        <p class="mb-4">
-          The most common reasons for horizontal mobile menus are:
-        </p>
-        <ul class="list-disc pl-5 space-y-2 mb-4">
-          <li>
-            Using flexbox without specifying <code>flex-direction: column</code>
-          </li>
-          <li>
-            Having elements with <code>display: inline</code> or
-            <code>display: inline-block</code>
-          </li>
-          <li>Not properly clearing floats</li>
-          <li>Incorrect use of Tailwind CSS classes</li>
-        </ul>
-        <p>
-          The fix uses <code>flex flex-col</code> to create a proper vertical
-          layout.
-        </p>
-      </div>
+            <!-- Bathroom -->
+            <div class="service-content hidden bg-blue-50 rounded-xl p-5" data-service="Bathroom">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Bathroom Cleaning</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Scrubbing toilet and sink</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Polishing mirrors</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Disinfecting floors</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Cleaning shower and tub</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Restocking supplies</li>
+                </ul>
+            </div>
 
-      <div class="bg-blue-50 p-6 rounded-lg shadow-md">
-        <h2 class="text-xl font-semibold mb-4">
-          Mobile Menu Test Instructions:
-        </h2>
-        <ol class="list-decimal pl-5 space-y-2">
-          <li>
-            Resize your browser to mobile width (or use DevTools mobile view)
-          </li>
-          <li>Click the menu button (☰) in the top right corner</li>
-          <li>The menu should open with a vertical layout</li>
-          <li>Try clicking on "Services" to see the submenu toggle</li>
-        </ol>
-      </div>
+            <!-- Kitchen -->
+            <div class="service-content hidden bg-blue-50 rounded-xl p-5" data-service="Kitchen">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Kitchen Cleaning</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Wiping countertops</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Scrubbing sink</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Cleaning appliances</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Cabinet exterior cleaning</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Backsplash and wall wiping</li>
+                </ul>
+            </div>
+
+            <!-- Living Room -->
+            <div class="service-content hidden bg-blue-50 rounded-xl p-5" data-service="Living Room">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Living Room Cleaning</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Vacuuming sofa and carpets</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Dusting electronics and decor</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Window and glass cleaning</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Dusting all surfaces</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Organizing and fluffing pillows</li>
+                </ul>
+            </div>
+
+            <!-- Office -->
+            <div class="service-content hidden bg-blue-50 rounded-xl p-5" data-service="Office">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Office Cleaning</h3>
+                <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Desk and chair sanitization</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Floor vacuum and mop</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Trash removal</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Electronics cleaning</li>
+                    <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-500 mr-2"></i> Organizing documents</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script>
-      // Mobile menu functionality
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            const serviceContents = document.querySelectorAll('.service-content');
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("menu-open");
-      });
+            // Initially select the first service and show its content
+            let selectedService = 'Bedroom';
 
-      // Submenu toggle function
-      function toggleSubmenu() {
-        const submenu = document.getElementById("servicesSubmenu");
-        const arrow = document.getElementById("servicesArrow");
+            // Handle card clicks
+            serviceCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const service = card.getAttribute('data-service');
 
-        submenu.classList.toggle("submenu-open");
-        arrow.classList.toggle("rotate-180");
-      }
+                    // If same card clicked again → do nothing (keep it selected)
+                    if (selectedService === service) {
+                        return;
+                    }
 
-      // Close menu when clicking outside
-      document.addEventListener("click", (event) => {
-        const isClickInsideMenu = mobileMenu.contains(event.target);
-        const isClickOnMenuButton = mobileMenuBtn.contains(event.target);
+                    // Deselect previous
+                    const prevCard = document.querySelector(`.service-card[data-service="${selectedService}"]`);
+                    if (prevCard) {
+                        prevCard.classList.remove('selected');
+                        prevCard.style.borderColor = '#e5e7eb';
+                        prevCard.style.backgroundColor = '#ffffff';
+                    }
 
-        if (
-          !isClickInsideMenu &&
-          !isClickOnMenuButton &&
-          mobileMenu.classList.contains("menu-open")
-        ) {
-          mobileMenu.classList.remove("menu-open");
-        }
-      });
+                    // Select new
+                    card.classList.add('selected');
+                    card.style.borderColor = '#2563eb';
+                    card.style.backgroundColor = '#f0f9ff';
+                    selectedService = service;
+
+                    // Show correct content
+                    hideAllContents();
+                    const content = document.querySelector(`.service-content[data-service="${service}"]`);
+                    if (content) content.classList.remove('hidden');
+                });
+            });
+
+            // Hide all content sections except the initially selected one
+            function hideAllContents() {
+                serviceContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
